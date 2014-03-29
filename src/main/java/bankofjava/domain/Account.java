@@ -1,11 +1,32 @@
 package bankofjava.domain;
 
-import java.math.BigDecimal;
+import javax.persistence.*;
 
+import java.math.BigDecimal;
+import java.util.Date;
+
+@Entity
 public class Account {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private long id;
 	private String name;
-	private BigDecimal balance = new BigDecimal(0);
+	private String email;
+	private String password;
+	private BigDecimal balance;
+	private Date created;
+	private Date deleted;
+	
+	
+	public Account(){}
+	public Account(String name, String email, String password){
+		this.name = name;
+		this.email = email;
+		this.password = password;
+		this.balance = new BigDecimal(0);
+		this.created = new Date();
+	}
 	
 	public void addCoin(BigDecimal coin){
 		balance = this.balance.add(coin);

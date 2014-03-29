@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import org.junit.*;
 
 import bankofjava.domain.Account;
+import bankofjava.infra.AccountRepository;
 
 public class AccountTest {
 	
@@ -16,6 +17,15 @@ public class AccountTest {
 		account.withdrawCoin(new BigDecimal(200));
 		
 		Assert.assertEquals(new BigDecimal(300), account.getBalance());
+	}
+	
+	@Test
+	public void createAccount(){
+		Account account = new Account("Roberto Baggio", "wagner@wagner.com", "123");
+		AccountRepository repository = new AccountRepository();
+		
+		repository.insert(account);
+		
 	}
 
 }
