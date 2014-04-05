@@ -20,6 +20,6 @@
 		   1234
 		</property>
 
-		<mapping class="bankofjava.domain.Account"></mapping>
+		<mapping class="bankofjava.domain.Coin"></mapping>
 	</session-factory>
 </hibernate-configuration>

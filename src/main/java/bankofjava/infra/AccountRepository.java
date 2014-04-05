@@ -2,7 +2,7 @@ package bankofjava.infra;
 
 import org.hibernate.*;
 
-import bankofjava.domain.Account;
+import bankofjava.domain.account.Account;
 
 public class AccountRepository {
 

@@ -1,16 +1,15 @@
-package bankofjava.domain;
+package bankofjava.domain.account;
 
 import javax.persistence.*;
-
 import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
-public class Account {
+public abstract class Account {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long id;
+	protected long id;
 	private String name;
 	private String email;
 	private String password;
@@ -39,6 +38,5 @@ public class Account {
 	public BigDecimal getBalance(){
 		return balance;
 	}
-
 
 }
