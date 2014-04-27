@@ -17,9 +17,10 @@
 		   root
 		</property>
 		<property name="hibernate.connection.password">
-		   1234
+		   2345
 		</property>
 
+		<mapping class="bankofjava.domain.account.Account"></mapping>
 		<mapping class="bankofjava.domain.Coin"></mapping>
 	</session-factory>
 </hibernate-configuration>

@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
-public abstract class Investment {
+public class Investment {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

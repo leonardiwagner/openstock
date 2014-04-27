@@ -1,24 +1,32 @@
 package bankofjava.domain;
 
+
 import javax.persistence.*;
+
+import bankofjava.domain.account.Account;
+
 import java.util.Date;
 
 @Entity
+@Table(name="coin")
 public class Coin {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-	private int accountId;
-	private String ip;
+	
+	@ManyToOne
+	@JoinColumn(name="accountid")
+	private Account account;
+	//private String ip;
 	private Date created;
-	private Date deleted;
+	//private Date deleted;
 	
 	private Coin() {}
 	
-	public Coin(int accountId, String ip){
-		this.accountId = accountId;
-		this.ip = ip;
+	public Coin(Account account, String ip){
+		this.account = account;
+		//this.ip = ip;
 		this.created = new Date();
 	}
 	

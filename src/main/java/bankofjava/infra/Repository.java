@@ -2,11 +2,22 @@ package bankofjava.infra;
 
 import org.hibernate.Session;
 
-public abstract class Repository<T> {
-	public Session session = Database.getSessionFactory().getCurrentSession();
+public class Repository<T> {
+	private Session session;
 	
-	public void insert(T entity){
-		session.save(entity);
+	public Repository(Database database){
+		this.session = database.getCurrentSession();
+	}
+	
+	public void save(T entity){
+		session.beginTransaction();
+		session.saveOrUpdate(entity);
+		session.getTransaction().commit();
+		
+	}
+	
+	public void delete(T entity){
+		session.delete(entity);
 	}
 	
 }

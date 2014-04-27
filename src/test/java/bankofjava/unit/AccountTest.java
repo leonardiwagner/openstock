@@ -4,7 +4,6 @@ import org.junit.*;
 import java.math.BigDecimal;
 
 import bankofjava.domain.account.Account;
-import bankofjava.infra.AccountRepository;
 
 public class AccountTest {
 	

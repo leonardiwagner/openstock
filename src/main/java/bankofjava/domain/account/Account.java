@@ -5,11 +5,12 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
-public abstract class Account {
+@Table(name="account")
+public class Account {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	protected long id;
+	protected int id;
 	private String name;
 	private String email;
 	private String password;
@@ -38,5 +39,11 @@ public abstract class Account {
 	public BigDecimal getBalance(){
 		return balance;
 	}
+	
+	public int getId(){
+		return this.id;
+	}
+	
+	
 
 }
