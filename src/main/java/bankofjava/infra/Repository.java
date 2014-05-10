@@ -1,7 +1,6 @@
 package bankofjava.infra;
 
 import java.util.List;
-
 import org.hibernate.Session;
 
 public abstract class Repository<T> {

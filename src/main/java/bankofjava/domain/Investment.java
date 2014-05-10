@@ -1,9 +1,6 @@
-package bankofjava.domain.investment;
+package bankofjava.domain;
 
 import javax.persistence.*;
-
-import bankofjava.domain.Account;
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;

@@ -1,13 +1,11 @@
 package bankofjava.integration;
 
 import org.junit.*;
-
 import bankofjava.domain.Account;
 import bankofjava.domain.InsufficientFundsException;
 import bankofjava.domain.Transfer;
 import bankofjava.infra.AccountRepository;
 import bankofjava.service.TransactionService;
-
 
 public class TransactionTest extends TestHelper {
 

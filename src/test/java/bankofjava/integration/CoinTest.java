@@ -1,13 +1,11 @@
 package bankofjava.integration;
 
+import org.junit.*;
 import java.math.BigDecimal;
 import java.util.List;
-
 import bankofjava.domain.*;
 import bankofjava.infra.*;
 import bankofjava.service.CoinService;
-
-import org.junit.*;
 
 public class CoinTest extends TestHelper{
 	

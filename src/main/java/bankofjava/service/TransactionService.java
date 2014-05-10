@@ -1,7 +1,6 @@
 package bankofjava.service;
 
 import java.util.List;
-
 import bankofjava.domain.Account;
 import bankofjava.domain.Coin;
 import bankofjava.domain.InsufficientFundsException;

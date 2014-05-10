@@ -1,13 +1,11 @@
 package bankofjava.integration;
 
 import org.junit.*;
-
+import java.util.*;
 import bankofjava.domain.Account;
 import bankofjava.domain.Coin;
 import bankofjava.domain.InsufficientFundsException;
 import bankofjava.infra.*;
-
-import java.util.*;
 
 public class AccountTest extends TestHelper{
 

@@ -2,7 +2,6 @@ package bankofjava.service;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import bankofjava.infra.*;
 import bankofjava.domain.*;
 

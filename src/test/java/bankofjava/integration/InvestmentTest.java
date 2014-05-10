@@ -2,11 +2,8 @@ package bankofjava.integration;
 
 import org.junit.Before;
 import org.junit.Test;
-
 import bankofjava.domain.*;
-import bankofjava.domain.investment.Investment;
 import bankofjava.infra.*;
-import junit.*;
 
 public class InvestmentTest extends TestHelper {
 

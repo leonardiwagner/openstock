@@ -1,10 +1,9 @@
 package bankofjava.integration;
 
 import java.util.List;
-
 import bankofjava.domain.Account;
 import bankofjava.domain.Coin;
-import bankofjava.domain.investment.Investment;
+import bankofjava.domain.Investment;
 import bankofjava.infra.AccountRepository;
 import bankofjava.infra.Database;
 import bankofjava.infra.InvestmentRepository;
