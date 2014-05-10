@@ -1,12 +1,18 @@
 package bankofjava.infra;
 
+import java.util.List;
+
 import org.hibernate.Session;
 
-public class Repository<T> {
-	private Session session;
+public abstract class Repository<T> {
+	protected Session session;
 	
 	public Repository(Database database){
-		this.session = database.getCurrentSession();
+		this.session = database.getSession();
+	}
+	
+	public List<T> getAll(Class<T> classType){
+		return session.createCriteria(classType).list();
 	}
 	
 	public void save(T entity){
@@ -17,7 +23,9 @@ public class Repository<T> {
 	}
 	
 	public void delete(T entity){
+		session.beginTransaction();
 		session.delete(entity);
+		session.getTransaction().commit();
 	}
 	
 }

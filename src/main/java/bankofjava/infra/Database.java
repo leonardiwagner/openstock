@@ -24,7 +24,7 @@ public class Database {
 	     this.sessionFactory = configuration.buildSessionFactory(serviceRegistry);
 	}
 	
-    public Session getCurrentSession() {
-        return this.sessionFactory.getCurrentSession();
+    public Session getSession() {
+        return this.sessionFactory.openSession();
     }
 }

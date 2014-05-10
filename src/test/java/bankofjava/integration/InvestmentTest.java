@@ -9,7 +9,7 @@ import bankofjava.domain.investment.Investment;
 import bankofjava.infra.*;
 import junit.*;
 
-public class InvestmentTest {
+public class InvestmentTest extends TestHelper {
 
 	private Database database;
 	private Account account;
@@ -18,14 +18,13 @@ public class InvestmentTest {
 	public void testInitialize()
 	{
 		this.database = new Database();
-		
-		Repository<Account> accountRepository = new Repository<Account>(this.database);
-		this.account = new Account("User Test Coin","test.coin@bankofjava.com","123");
-		accountRepository.save(account);
 	}
 	
 	@Test
 	public void createInvestment(){
+		Investment investment = new Investment(super.createTestAccount());
+		InvestmentRepository investmentRepository = new InvestmentRepository(this.database);
 		
+		investmentRepository.save(investment);
 	}
 }

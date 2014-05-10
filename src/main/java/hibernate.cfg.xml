@@ -4,6 +4,7 @@
 
 <hibernate-configuration>
    <session-factory>
+   		<property name="show_sql">true</property>
 		<property name="hibernate.connection.driver_class">
 		   com.mysql.jdbc.Driver
 		</property>
@@ -17,10 +18,11 @@
 		   root
 		</property>
 		<property name="hibernate.connection.password">
-		   2345
+		   1234
 		</property>
 
 		<mapping class="bankofjava.domain.account.Account"></mapping>
 		<mapping class="bankofjava.domain.Coin"></mapping>
+		<mapping class="bankofjava.domain.investment.Investment"></mapping>
 	</session-factory>
 </hibernate-configuration>

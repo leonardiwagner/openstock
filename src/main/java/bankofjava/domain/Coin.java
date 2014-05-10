@@ -18,7 +18,7 @@ public class Coin {
 	@ManyToOne
 	@JoinColumn(name="accountid")
 	private Account account;
-	//private String ip;
+	private String ip;
 	private Date created;
 	//private Date deleted;
 	
@@ -26,7 +26,7 @@ public class Coin {
 	
 	public Coin(Account account, String ip){
 		this.account = account;
-		//this.ip = ip;
+		this.ip = ip;
 		this.created = new Date();
 	}
 	

@@ -44,6 +44,14 @@ public class Account {
 		return this.id;
 	}
 	
+	public String getName(){
+		return this.name;
+	}
+	
+	public String getEmail(){
+		return this.email;
+	}
+	
 	
 
 }
