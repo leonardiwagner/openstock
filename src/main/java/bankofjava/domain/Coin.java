@@ -3,8 +3,6 @@ package bankofjava.domain;
 
 import javax.persistence.*;
 
-import bankofjava.domain.account.Account;
-
 import java.util.Date;
 
 @Entity

@@ -11,6 +11,27 @@ public class Database {
 
 	private SessionFactory sessionFactory;
 	
+	private static Session _session = null;
+	
+	public static Session getOpenSession(){
+		if(_session == null){
+			Configuration configuration=new AnnotationConfiguration()
+	        .configure(); // configures settings from hibernate.cfg.xml
+	
+		     StandardServiceRegistryBuilder serviceRegistryBuilder = new StandardServiceRegistryBuilder();
+		
+		     // If you miss the below line then it will complaing about a missing dialect setting
+		     serviceRegistryBuilder.applySettings(configuration.getProperties());
+		
+		     ServiceRegistry serviceRegistry = serviceRegistryBuilder.build();
+		     SessionFactory sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+		     
+		     _session = sessionFactory.openSession();
+	     }
+		
+		return _session;
+	}
+	
 	public Database(){
 		Configuration configuration=new AnnotationConfiguration()
         .configure(); // configures settings from hibernate.cfg.xml

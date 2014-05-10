@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import bankofjava.domain.account.Account;
+import bankofjava.domain.Account;
 
 @Entity
 public class InvestmentAction {

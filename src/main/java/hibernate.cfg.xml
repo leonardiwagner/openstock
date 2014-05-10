@@ -21,8 +21,9 @@
 		   1234
 		</property>
 
-		<mapping class="bankofjava.domain.account.Account"></mapping>
+		<mapping class="bankofjava.domain.Account"></mapping>
 		<mapping class="bankofjava.domain.Coin"></mapping>
+		<mapping class="bankofjava.domain.Transfer"></mapping>
 		<mapping class="bankofjava.domain.investment.Investment"></mapping>
 	</session-factory>
 </hibernate-configuration>

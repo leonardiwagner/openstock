@@ -2,8 +2,6 @@ package bankofjava.domain;
 
 import javax.persistence.*;
 
-import bankofjava.domain.account.Account;
-
 import java.math.BigDecimal;
 import java.util.Date;
 

@@ -2,8 +2,6 @@ package bankofjava.domain;
 
 import javax.persistence.*;
 
-import bankofjava.domain.account.Account;
-
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -13,7 +11,11 @@ public class Transaction {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
+	@ManyToOne
+	@JoinColumn(name="accountid_from")
 	private Account accountFrom;
+	@ManyToOne
+	@JoinColumn(name="accountid_to")
 	private Account accountTo;
 	private BigDecimal amount;
 	private Date created;
