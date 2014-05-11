@@ -29,22 +29,38 @@ CREATE TABLE `account` (
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `balance` datetime NOT NULL,
+  `balance` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `deleted` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=344 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `account`
+-- Table structure for table `account_coin`
 --
 
-LOCK TABLES `account` WRITE;
-/*!40000 ALTER TABLE `account` DISABLE KEYS */;
-INSERT INTO `account` VALUES (3,'Julius','julius@julius.com','123','0000-00-00 00:00:00','2014-04-27 18:41:50',NULL),(4,'Julius','julius@julius.com','123','0000-00-00 00:00:00','2014-04-27 18:48:29',NULL),(5,'Julius','julius@julius.com','123','0000-00-00 00:00:00','2014-04-27 18:51:00',NULL),(6,'Julius','julius@julius.com','123','0000-00-00 00:00:00','2014-04-27 18:51:30',NULL),(7,'Julius','julius@julius.com','123','0000-00-00 00:00:00','2014-04-27 18:51:32',NULL),(8,'Julius','julius@julius.com','123','0000-00-00 00:00:00','2014-04-27 18:51:56',NULL),(9,'Julius','julius@julius.com','123','0000-00-00 00:00:00','2014-04-27 18:51:58',NULL),(10,'Julius','julius@julius.com','123','0000-00-00 00:00:00','2014-04-27 18:52:10',NULL),(11,'User Test Coin','test.coin@bankofjava.com','123','0000-00-00 00:00:00','2014-04-27 19:03:15',NULL),(12,'Julius','julius@julius.com','123','0000-00-00 00:00:00','2014-04-27 19:03:16',NULL),(13,'User Test Coin','test.coin@bankofjava.com','123','0000-00-00 00:00:00','2014-04-27 19:07:53',NULL),(14,'User Test Coin','test.coin@bankofjava.com','123','0000-00-00 00:00:00','2014-04-27 19:08:12',NULL),(15,'User Test Coin','test.coin@bankofjava.com','123','0000-00-00 00:00:00','2014-04-27 19:08:34',NULL),(16,'User Test Coin','test.coin@bankofjava.com','123','0000-00-00 00:00:00','2014-04-27 19:14:26',NULL),(17,'User Test Coin','test.coin@bankofjava.com','123','0000-00-00 00:00:00','2014-04-27 19:15:12',NULL),(18,'User Test Coin','test.coin@bankofjava.com','123','0000-00-00 00:00:00','2014-05-01 13:27:28',NULL),(19,'User Test Coin','test.coin@bankofjava.com','123','0000-00-00 00:00:00','2014-05-01 13:27:29',NULL),(20,'Julius','julius@julius.com','123','0000-00-00 00:00:00','2014-05-01 13:27:29',NULL),(21,'User Test Coin','test.coin@bankofjava.com','123','0000-00-00 00:00:00','2014-05-01 13:28:15',NULL),(22,'User Test Coin','test.coin@bankofjava.com','123','0000-00-00 00:00:00','2014-05-01 13:28:16',NULL),(23,'Julius','julius@julius.com','123','0000-00-00 00:00:00','2014-05-01 13:28:16',NULL);
-/*!40000 ALTER TABLE `account` ENABLE KEYS */;
-UNLOCK TABLES;
+DROP TABLE IF EXISTS `account_coin`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `account_coin` (
+  `accountid` int(11) NOT NULL,
+  `coinid` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `account_investment`
+--
+
+DROP TABLE IF EXISTS `account_investment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `account_investment` (
+  `accountid` int(11) NOT NULL,
+  `investmentid` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `coin`
@@ -57,19 +73,10 @@ CREATE TABLE `coin` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `accountid` int(11) NOT NULL,
   `created` datetime NOT NULL,
+  `ip` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3494 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `coin`
---
-
-LOCK TABLES `coin` WRITE;
-/*!40000 ALTER TABLE `coin` DISABLE KEYS */;
-INSERT INTO `coin` VALUES (1,15,'2014-04-27 19:08:34'),(2,17,'2014-04-27 19:15:12'),(3,18,'2014-05-01 13:27:29'),(4,21,'2014-05-01 13:28:16');
-/*!40000 ALTER TABLE `coin` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `investment`
@@ -81,20 +88,28 @@ DROP TABLE IF EXISTS `investment`;
 CREATE TABLE `investment` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `accountid` int(11) NOT NULL,
-  `index` int(11) NOT NULL,
+  `price` decimal(10,0) NOT NULL,
   `created` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `investment`
+-- Table structure for table `transfer`
 --
 
-LOCK TABLES `investment` WRITE;
-/*!40000 ALTER TABLE `investment` DISABLE KEYS */;
-/*!40000 ALTER TABLE `investment` ENABLE KEYS */;
-UNLOCK TABLES;
+DROP TABLE IF EXISTS `transfer`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `transfer` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `accountid_from` int(11) NOT NULL,
+  `accountid_to` int(11) NOT NULL,
+  `amount` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -105,4 +120,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-05-01 13:50:56
+-- Dump completed on 2014-05-10 21:43:55
