@@ -11,6 +11,11 @@ import bankofjava.service.CoinService;
 
 public abstract class TestHelper {
 	
+	public Account getBankAccount(){
+		AccountRepository accountRepository = new AccountRepository();
+		return accountRepository.getBankAccount();
+	}
+	
 	public Account createTestAccount(){
 		Account account = new Account("User Test Coin","test.coin@bankofjava.com","123");
 		AccountRepository accountRepository = new AccountRepository();

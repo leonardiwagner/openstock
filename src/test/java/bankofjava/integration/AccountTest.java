@@ -12,7 +12,8 @@ public class AccountTest extends TestHelper{
 	@Before
 	public void testInitialize(){
 		AccountRepository accountRepository = new AccountRepository();
-		for(Account account : accountRepository.getAll(Account.class)) accountRepository.delete(account);
+		for(Account account : accountRepository.getAll(Account.class))
+			if(!account.isBank()) accountRepository.delete(account);
 	}
 	
 	@Test

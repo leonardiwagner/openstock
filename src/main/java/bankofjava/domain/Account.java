@@ -65,6 +65,10 @@ public class Account {
 		return withdrawCoinList;
 	}
 	
+	public boolean isBank(){
+		return this.email == "bank";
+	}
+	
 	public int getBalance(){
 		return balance;
 	}

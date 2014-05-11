@@ -26,10 +26,16 @@ public class InvestmentTest extends TestHelper {
 	
 	@Test
 	public void upInvestment(){
-		/*
-		Investment investment = super.createTestInvestment(super.createTestAccount());
-		Account voterAccount = super.createTestAccount();
-		investment.up(voterAccount, )
-		*/
+		AccountRepository accountRepository = new AccountRepository();
+		InvestmentRepository investmentRepository = new InvestmentRepository();
+		
+		Account investmentCreator = super.createTestAccount();
+		Investment investment = super.createTestInvestment(investmentCreator);
+		investmentRepository.save(investment);
+		
+		Account invester = super.createTestAccount();
+		invester.depositCoin(super.generateCoins(invester, 30));
+		accountRepository.save(invester);
+		
 	}
 }

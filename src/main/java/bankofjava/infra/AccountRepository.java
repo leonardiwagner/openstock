@@ -14,5 +14,12 @@ public class AccountRepository extends Repository<Account>{
 		
 		return query.list();
 	}
+	
+	public Account getBankAccount(){
+		Query query = session.createQuery("from Account account where email=:email"); 
+		query.setParameter("email", "bank");
+		
+		return (Account) query.list().get(0);
+	}
 
 }
