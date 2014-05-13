@@ -50,6 +50,5 @@ public class TransactionTest extends TestHelper {
 		}catch(InsufficientFundsException e){
 			
 		}
-		
 	}
 }
