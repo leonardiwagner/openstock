@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `bankofjava` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `bankofjava`;
--- MySQL dump 10.13  Distrib 5.5.37, for debian-linux-gnu (x86_64)
+-- MySQL dump 10.13  Distrib 5.6.13, for Win32 (x86)
 --
--- Host: 127.0.0.1    Database: bankofjava
+-- Host: localhost    Database: bankofjava
 -- ------------------------------------------------------
--- Server version	5.5.37-0ubuntu0.14.04.1
+-- Server version	5.6.17-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -37,6 +37,15 @@ CREATE TABLE `account` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `account`
+--
+
+LOCK TABLES `account` WRITE;
+/*!40000 ALTER TABLE `account` DISABLE KEYS */;
+/*!40000 ALTER TABLE `account` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `account_coin`
 --
 
@@ -50,6 +59,15 @@ CREATE TABLE `account_coin` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `account_coin`
+--
+
+LOCK TABLES `account_coin` WRITE;
+/*!40000 ALTER TABLE `account_coin` DISABLE KEYS */;
+/*!40000 ALTER TABLE `account_coin` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `account_investment`
 --
 
@@ -61,6 +79,15 @@ CREATE TABLE `account_investment` (
   `investmentid` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `account_investment`
+--
+
+LOCK TABLES `account_investment` WRITE;
+/*!40000 ALTER TABLE `account_investment` DISABLE KEYS */;
+/*!40000 ALTER TABLE `account_investment` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `coin`
@@ -79,6 +106,15 @@ CREATE TABLE `coin` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `coin`
+--
+
+LOCK TABLES `coin` WRITE;
+/*!40000 ALTER TABLE `coin` DISABLE KEYS */;
+/*!40000 ALTER TABLE `coin` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `investment`
 --
 
@@ -93,6 +129,65 @@ CREATE TABLE `investment` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `investment`
+--
+
+LOCK TABLES `investment` WRITE;
+/*!40000 ALTER TABLE `investment` DISABLE KEYS */;
+/*!40000 ALTER TABLE `investment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `stock`
+--
+
+DROP TABLE IF EXISTS `stock`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `stock` (
+  `name` varchar(10) NOT NULL,
+  `fullName` varchar(45) NOT NULL,
+  `currentValue` decimal(10,0) NOT NULL,
+  `lastChange` decimal(10,0) NOT NULL,
+  PRIMARY KEY (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `stock`
+--
+
+LOCK TABLES `stock` WRITE;
+/*!40000 ALTER TABLE `stock` DISABLE KEYS */;
+/*!40000 ALTER TABLE `stock` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `stockitem`
+--
+
+DROP TABLE IF EXISTS `stockitem`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `stockitem` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `stockName` varchar(10) NOT NULL,
+  `date` date NOT NULL,
+  `value` decimal(10,0) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `stockitem`
+--
+
+LOCK TABLES `stockitem` WRITE;
+/*!40000 ALTER TABLE `stockitem` DISABLE KEYS */;
+/*!40000 ALTER TABLE `stockitem` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `transfer`
@@ -110,6 +205,15 @@ CREATE TABLE `transfer` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `transfer`
+--
+
+LOCK TABLES `transfer` WRITE;
+/*!40000 ALTER TABLE `transfer` DISABLE KEYS */;
+/*!40000 ALTER TABLE `transfer` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -120,4 +224,4 @@ CREATE TABLE `transfer` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-05-10 21:43:55
+-- Dump completed on 2014-07-11 15:27:55

@@ -28,9 +28,7 @@ public class InvestmentService {
 	public void up(Account account) throws InsufficientFundsException{
 		AccountRepository accountRepository = new AccountRepository();
 		List<Coin> withdrawList = account.withdrawCoin(UP_REGISTERED_VALUE);
-		
-		
-		
+
 	}
 	
 	

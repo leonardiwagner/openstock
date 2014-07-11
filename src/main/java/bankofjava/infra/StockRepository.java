@@ -1,18 +1,20 @@
 package bankofjava.infra;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.net.URLEncoder;
+import bankofjava.domain.StockItem;
+
+import javax.json.*;
+import java.io.*;
+import java.net.*;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class StockRepository {
 	
-	private String queryYahoo(String query) throws IOException, URISyntaxException{
+	private InputStream queryYahoo(String query) throws IOException, URISyntaxException{
 		
 		
 		query = URLEncoder.encode(query);
@@ -20,20 +22,36 @@ public class StockRepository {
 						+ "&format=json&diagnostics=false"
 						+ "&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys")
 						.replaceAll("#query#",query);
-		
-		URL oracle = new URL(queryUrl);
-        BufferedReader in = new BufferedReader(
-        new InputStreamReader(oracle.openStream()));
 
-        String inputLine;
-        while ((inputLine = in.readLine()) != null)
-            System.out.println(inputLine);
-        in.close();
-        
-        return inputLine;
+		URL url = new URL(queryUrl);
+
+
+       return url.openStream();
 	}
+
+    public List<StockItem> GetExchangeDataToday()  throws IOException, URISyntaxException{
+        //todo: check if it was already done today!
+        String query = "select * from yahoo.finance.xchange where pair in "
+                        + "(\"EURUSD\",\"GBPUSD\",\"CADUSD\",\"JPYUSD\", \"BRLUSD\")";
+
+        JsonObject jsonObject = Json.createReader(this.queryYahoo(query)).readObject();
+
+        List<StockItem> stockItemList = new ArrayList<StockItem>();
+        JsonArray currencies = jsonObject.getJsonObject("query").getJsonObject("results").getJsonArray("rate");
+        DateFormat formatYahooDate = new SimpleDateFormat("dd/MM/yyyy");
+        for (JsonObject currency : currencies.getValuesAs(JsonObject.class)){
+            try {
+                stockItemList.add(new StockItem(currency.getString("id"), formatYahooDate.parse(currency.getString("Date")), Float.parseFloat(currency.getString("Rate"))));
+            } catch (ParseException e) {
+
+            }
+        }
+        return stockItemList;
+    }
+
 	public void GetHistoricalData(String stockName, Date start, Date end){
-		String query = "select * from yahoo.finance.historicaldata where symbol = \"YHOO\" and startDate = \"2014-07-01\" and endDate = \"2014-07-10\"";
+		/*
+        String query = "select * from yahoo.finance.historicaldata where symbol = \"YHOO\" and startDate = \"2014-07-01\" and endDate = \"2014-07-10\"";
 		try {
 			String result = this.queryYahoo(query);
 		}catch (URISyntaxException e){
@@ -42,5 +60,8 @@ public class StockRepository {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		*/
 	}
 }
+
+
