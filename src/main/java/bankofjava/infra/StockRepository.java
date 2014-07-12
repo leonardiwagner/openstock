@@ -1,6 +1,8 @@
 package bankofjava.infra;
 
+import bankofjava.domain.Stock;
 import bankofjava.domain.StockItem;
+import org.hibernate.Session;
 
 import javax.json.*;
 import java.io.*;
@@ -13,6 +15,22 @@ import java.util.Date;
 import java.util.List;
 
 public class StockRepository {
+    private Session databaseSession;
+
+    public StockRepository(){
+        this.databaseSession = Database.getOpenSession();
+    }
+
+    public Stock get(String name){
+        return (Stock) databaseSession.get(Stock.class,name);
+    }
+
+    private Stock save(Stock stock){
+        databaseSession.beginTransaction();
+        databaseSession.saveOrUpdate(stock);
+        databaseSession.getTransaction().commit();
+        return stock;
+    }
 	
 	private InputStream queryYahoo(String query) throws IOException, URISyntaxException{
 		
@@ -47,6 +65,14 @@ public class StockRepository {
             }
         }
         return stockItemList;
+    }
+
+    public void updateExchangeData(List<StockItem> stockItemList){
+        for(StockItem item : stockItemList){
+            Stock stock = this.get(item.getName());
+            stock.setCurrentValue(item.getValue());
+            this.save(stock);
+        }
     }
 
 	public void GetHistoricalData(String stockName, Date start, Date end){

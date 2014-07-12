@@ -16,7 +16,7 @@ public class Database {
 	public static Session getOpenSession(){
 		if(_session == null){
 			Configuration configuration=new AnnotationConfiguration()
-	        .configure(); // configures settings from hibernate.cfg.xml
+	        .configure("hibernate.cfg.xml"); // configures settings from hibernate.cfg.xml
 	
 		     StandardServiceRegistryBuilder serviceRegistryBuilder = new StandardServiceRegistryBuilder();
 		

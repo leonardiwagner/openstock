@@ -1,15 +1,29 @@
 package bankofjava.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
 
+@Entity
+@Table(name="stockitem")
 public class StockItem {
-    private String stockName;
+    @Id
+    private String name;
     private Date date;
     private float value;
 
-    public StockItem(String stockName, Date date, float value){
-        this.stockName = stockName;
+    public StockItem(String name, Date date, float value){
+        this.name = name;
         this.date = date;
         this.value = value;
+    }
+
+    public String getName(){
+        return this.name;
+    }
+
+    public float getValue(){
+        return this.value;
     }
 }

@@ -1,7 +1,7 @@
 package bankofjava.service;
 
 public class StockService {
-    public UpdateStockCurrency(){
+    public void UpdateStockCurrency(){
 
     }
 }

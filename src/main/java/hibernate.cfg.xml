@@ -25,5 +25,7 @@
 		<mapping class="bankofjava.domain.Coin"></mapping>
 		<mapping class="bankofjava.domain.Transfer"></mapping>
 		<mapping class="bankofjava.domain.Investment"></mapping>
+       <mapping class="bankofjava.domain.Stock"></mapping>
+       <mapping class="bankofjava.domain.StockItem"></mapping>
 	</session-factory>
 </hibernate-configuration>
