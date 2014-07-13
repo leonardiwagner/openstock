@@ -21,16 +21,11 @@ public class StockTest {
 	}
 
     @Test
-    public void readExchangeToday(){
+    public void readExchangeToday() throws IOException, URISyntaxException{
         StockRepository stockRepository = new StockRepository();
         List<StockItem> currencies = null;
-        try {
-            currencies = stockRepository.GetExchangeDataToday();
-        }catch(URISyntaxException e){
+        currencies = stockRepository.GetExchangeDataToday();
 
-        }catch(IOException e){
-
-        }
         Assert.assertEquals(currencies.size(), 5);
     }
 
@@ -45,6 +40,9 @@ public class StockTest {
 
         Stock euroStock = stockRepository.get("EURUSD");
         Stock gbpStock = stockRepository.get("GBPUSD");
+        
+        Assert.assertEquals(5, euroStock.getCurrentValue());
+        Assert.assertEquals(10, euroStock.getCurrentValue());
     }
 
 

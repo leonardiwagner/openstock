@@ -15,6 +15,9 @@ public class Stock {
 	private float currentValue;
 	private float lastChange;
 	
+	public float getCurrentValue(){
+		return this.currentValue;
+	}
     public void setCurrentValue(float value){
         this.currentValue = value;
     }

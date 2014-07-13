@@ -32,62 +32,21 @@ public class StockRepository {
         return stock;
     }
 	
-	private InputStream queryYahoo(String query) throws IOException, URISyntaxException{
-		
-		
-		query = URLEncoder.encode(query);
-		String queryUrl = ("https://query.yahooapis.com/v1/public/yql?q=#query#"
-						+ "&format=json&diagnostics=false"
-						+ "&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys")
-						.replaceAll("#query#",query);
-
-		URL url = new URL(queryUrl);
 
 
-       return url.openStream();
-	}
-
-    public List<StockItem> GetExchangeDataToday()  throws IOException, URISyntaxException{
-        //todo: check if it was already done today!
-        String query = "select * from yahoo.finance.xchange where pair in "
-                        + "(\"EURUSD\",\"GBPUSD\",\"CADUSD\",\"JPYUSD\", \"BRLUSD\")";
-
-        JsonObject jsonObject = Json.createReader(this.queryYahoo(query)).readObject();
-
-        List<StockItem> stockItemList = new ArrayList<StockItem>();
-        JsonArray currencies = jsonObject.getJsonObject("query").getJsonObject("results").getJsonArray("rate");
-        DateFormat formatYahooDate = new SimpleDateFormat("dd/MM/yyyy");
-        for (JsonObject currency : currencies.getValuesAs(JsonObject.class)){
-            try {
-                stockItemList.add(new StockItem(currency.getString("id"), formatYahooDate.parse(currency.getString("Date")), Float.parseFloat(currency.getString("Rate"))));
-            } catch (ParseException e) {
-
-            }
-        }
-        return stockItemList;
-    }
-
-    public void updateExchangeData(List<StockItem> stockItemList){
+    public void saveItems(List<StockItem> stockItemList){
         for(StockItem item : stockItemList){
             Stock stock = this.get(item.getName());
             stock.setCurrentValue(item.getValue());
             this.save(stock);
         }
     }
+    
+    public StockItem getLastItem(String stockName){
+    	return (StockItem)this.databaseSession.createQuery("from StockItem where name='" + stockName + "' order by date desc LIMIT 1").uniqueResult();
+    }
 
-	public void GetHistoricalData(String stockName, Date start, Date end){
-		/*
-        String query = "select * from yahoo.finance.historicaldata where symbol = \"YHOO\" and startDate = \"2014-07-01\" and endDate = \"2014-07-10\"";
-		try {
-			String result = this.queryYahoo(query);
-		}catch (URISyntaxException e){
-			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		*/
-	}
+
 }
 
 

@@ -13,6 +13,8 @@ public class StockItem {
     private Date date;
     private float value;
 
+	private StockItem(){}
+	
     public StockItem(String name, Date date, float value){
         this.name = name;
         this.date = date;
