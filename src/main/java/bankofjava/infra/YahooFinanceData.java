@@ -15,7 +15,7 @@ import java.util.Scanner;
 
 public class YahooFinanceData {
 	private final String url = "http://ichart.yahoo.com/table.csv?s=#s#&a=#a#&b=#b#&c=#c#&d=#d#&e=#e#&f=#f#&g=d&ignore=.csv";
-	private final DateFormat yahooDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+	private final DateFormat yahooDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	
 	public List<StockItem> get(String symbol, LocalDate startDate, LocalDate endDate) throws IOException, ParseException{
 		String callUrl = this.replaceDateUrl(startDate, endDate).replaceAll("#s#", symbol);
@@ -36,22 +36,22 @@ public class YahooFinanceData {
 	private List<StockItem> csvResponseToObject(String csvResponse, String symbol) throws ParseException{
 		List<StockItem> response = new ArrayList<StockItem>();
 		
-		String[] lines = csvResponse.split("/r");
+		String[] lines = csvResponse.split("\n");
 		for(int i = 1; i < lines.length; i++){
 			String[] rows = lines[i].split(",");
-			response.add(new StockItem(symbol, yahooDateFormat.parse(rows[0]),Float.parseFloat(rows[3])));
+			response.add(new StockItem(symbol, yahooDateFormat.parse(rows[0]),Float.parseFloat(rows[3]),0));
 		}
 		
 		return response;
 	}
 	
 	private String replaceDateUrl(LocalDate startDate, LocalDate endDate){
-		return this.url.replaceAll("#a#", String.valueOf(startDate.getDayOfMonth()))
-				.replaceAll("#b#", String.valueOf(startDate.getMonthValue()))
+		return this.url.replaceAll("#a#", String.valueOf(startDate.getMonthValue() - 1))
+				.replaceAll("#b#", String.valueOf(startDate.getDayOfMonth()))
 				.replaceAll("#c#", String.valueOf(startDate.getYear()))
-				.replaceAll("#d#", String.valueOf(startDate.getDayOfMonth()))
-				.replaceAll("#e#", String.valueOf(startDate.getMonthValue()))
-				.replaceAll("#f#", String.valueOf(startDate.getYear()));
+				.replaceAll("#d#", String.valueOf(endDate.getMonthValue() - 1))
+				.replaceAll("#e#", String.valueOf(endDate.getDayOfMonth()))
+				.replaceAll("#f#", String.valueOf(endDate.getYear()));
 	}
 }
 

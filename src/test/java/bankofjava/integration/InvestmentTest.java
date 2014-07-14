@@ -7,14 +7,14 @@ import bankofjava.infra.*;
 
 public class InvestmentTest extends TestHelper {
 
-	@Test
+	//@Test
 	public void createInvestment(){
 		Investment investment = new Investment(super.createTestAccount());
 		InvestmentRepository investmentRepository = new InvestmentRepository();
 		investmentRepository.save(investment);
 	}
 	
-	@Test
+	//@Test
 	public void invest(){
 		Investment investment = new Investment(super.createTestAccount());
 		InvestmentRepository investmentRepository = new InvestmentRepository();
@@ -24,7 +24,7 @@ public class InvestmentTest extends TestHelper {
 		investmentRepository.save(investment);
 	}
 	
-	@Test
+	//@Test
 	public void upInvestment(){
 		AccountRepository accountRepository = new AccountRepository();
 		InvestmentRepository investmentRepository = new InvestmentRepository();

@@ -9,7 +9,7 @@ import bankofjava.service.CoinService;
 
 public class CoinTest extends TestHelper{
 	
-	@Test
+	//@Test
 	public void generateCoin(){
 		CoinRepository coinRepository = new CoinRepository();
 		
@@ -17,7 +17,7 @@ public class CoinTest extends TestHelper{
 		coinRepository.save(coin);
 	}
 	
-	@Test
+	//@Test
 	public void generateManyCoins(){
 		CoinService coinService = new CoinService();
 		List<Coin> generatedCoinList = coinService.generateCoin(super.createTestAccount(), "192.0.0.1", 20);

@@ -9,7 +9,7 @@ import bankofjava.service.TransactionService;
 
 public class TransactionTest extends TestHelper {
 
-	@Test
+	//@Test
 	public void transaction() throws InsufficientFundsException{
 		AccountRepository accountRepository = new AccountRepository();
 		
@@ -32,7 +32,7 @@ public class TransactionTest extends TestHelper {
 		Assert.assertEquals(20, transfer.getAmount());
 	}
 	
-	@Test
+	//@Test
 	public void transactionWithInsufficientFunds(){
 		AccountRepository accountRepository = new AccountRepository();
 		

@@ -12,13 +12,15 @@ public class StockItem {
     private String name;
     private Date date;
     private float value;
+    private float change;
 
 	private StockItem(){}
 	
-    public StockItem(String name, Date date, float value){
+    public StockItem(String name, Date date, float value, float change){
         this.name = name;
         this.date = date;
         this.value = value;
+        this.change = change;
     }
 
     public String getName(){

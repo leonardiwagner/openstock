@@ -32,8 +32,6 @@ public class StockRepository {
         return stock;
     }
 	
-
-
     public void saveItems(List<StockItem> stockItemList){
         for(StockItem item : stockItemList){
             Stock stock = this.get(item.getName());
@@ -41,6 +39,12 @@ public class StockRepository {
             this.save(stock);
         }
     }
+    
+    public void deleteItem(StockItem entity){
+    	databaseSession.beginTransaction();
+    	databaseSession.delete(entity);
+		databaseSession.getTransaction().commit();
+	}
     
     public StockItem getLastItem(String stockName){
     	return (StockItem)this.databaseSession.createQuery("from StockItem where name='" + stockName + "' order by date desc LIMIT 1").uniqueResult();

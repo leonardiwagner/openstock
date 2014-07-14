@@ -36,7 +36,7 @@ public class AccountTest extends TestHelper{
 		Assert.assertEquals(account.getEmail(), loggedAccount.getEmail());
 	}
 	
-	@Test
+	//@Test
 	public void depositCoins(){
 		AccountRepository accountRepository = new AccountRepository();
 		
@@ -49,7 +49,7 @@ public class AccountTest extends TestHelper{
 		Assert.assertEquals(account.getBalance(), searchedAccount.getBalance());
 	}
 	
-	@Test
+	//@Test
 	public void withdrawCoins() throws InsufficientFundsException{
 		AccountRepository accountRepository = new AccountRepository();
 		
@@ -66,7 +66,7 @@ public class AccountTest extends TestHelper{
 		Assert.assertEquals(5, searchedAccount2.getBalance());
 	}
 	
-	@Test
+	//@Test
 	public void withdrawCoinsWithInsufficientFunds() {
 		AccountRepository accountRepository = new AccountRepository();
 		
