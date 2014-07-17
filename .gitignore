@@ -19,6 +19,12 @@ target/
 *.war
 *.ear
 *.db
+
+# bower
+**/Scripts/lib/
+
+# Node modules
+node_modules/
  
 ######################
 # Windows
