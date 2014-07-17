@@ -1,14 +1,11 @@
 package bankofjava.service;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
-import org.junit.Assert;
-
 import bankofjava.domain.Stock;
 import bankofjava.domain.StockItem;
 import bankofjava.infra.StockRepository;
+
+
+import java.util.List;
 
 public class StockService {
 	
@@ -19,8 +16,7 @@ public class StockService {
         Stock euroStock = stockRepository.get("EURUSD");
         Stock gbpStock = stockRepository.get("GBPUSD");
         
-        Assert.assertEquals(5, euroStock.getCurrentValue());
-        Assert.assertEquals(10, euroStock.getCurrentValue());
+
     }
 
 }
