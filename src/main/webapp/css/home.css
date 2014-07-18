@@ -1,5 +1,11 @@
+body{
+  background-color: red;
+}
+
+
 #top-movers ul{
-  
+  width:100%;
+  float:left;
 }
 .movers-up{
   color: green;
@@ -45,4 +51,8 @@
 .mover-buy{
   position: absolute;
   right:10px;
+}
+
+#most-downloaded{
+  float:left;
 }
