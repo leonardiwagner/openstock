@@ -28,7 +28,7 @@ public class Account {
 								})
 	private List<Coin> coins;
 	
-	public Account(){}
+	protected Account(){}
 	public Account(String name, String email, String password){
 		this.name = name;
 		this.email = email;
