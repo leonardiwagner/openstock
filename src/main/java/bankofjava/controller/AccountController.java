@@ -1,25 +1,52 @@
 package bankofjava.controller;
 
-import java.lang.annotation.Annotation;
 
-import org.springframework.ui.Model;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.servlet.mvc.Controller;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import bankofjava.domain.Account;
-import bankofjava.service.IAccountService;
 
+
+
+@Controller
 @RequestMapping(value = "/account")
-public class AccountController implements Controller{
+public class AccountController{
+
 
 	@RequestMapping(value = "/index")
-	public void index(){
+	public Account index(){
+		return new Account("test name", "test@email.com", "123");
 	}
 	
-	@RequestMapping(value = "/create")
+	@RequestMapping(value = "/login", method=RequestMethod.POST)
+	public void login(@RequestParam String email, @RequestParam String password,
+					  HttpServletRequest request, HttpSession session){
+
+		Account account = new Account(name,email,""); //todo login to get this account
+		
+		session.setAttribute("user", account);
+	}
+	
+	@RequestMapping(value = "/create", method=RequestMethod.POST)
+	public void create(HttpServletRequest request, HttpSession session){
+		String name = request.getParameter("name");
+		String email = request.getParameter("email");
+		
+		Account account = new Account("","",""); //todo create account
+		
+		session.setAttribute("user", account);
+		
+	}
+	
+	@RequestMapping(value = "/create", method=RequestMethod.POST)
 	public void create(){
 	}
 
 
 }
+
