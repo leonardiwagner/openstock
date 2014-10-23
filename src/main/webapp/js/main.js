@@ -1,4 +1,6 @@
 
+// Definindo um novo módulo para nossa aplicação
+var homeApp = angular.module ("homeApp", []);
 
 homeApp.controller('HomeController', function($scope) {
   $scope.moversUp = [

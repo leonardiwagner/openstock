@@ -1,8 +1,7 @@
 google.load("visualization", "1", {packages:["corechart"]});
 google.setOnLoadCallback(drawChart);
 
-// Definindo um novo módulo para nossa aplicação
-var homeApp = angular.module ("homeApp", []);
+
 
 
 function drawChart() {
@@ -17,8 +16,9 @@ function drawChart() {
       ]);
 
 var options = {
+    "chartArea.left": "100px",
     title: 'Top Markers',
-    curveType: 'function',
+    axisTitlesPosition: 'none',
     textStyle: {
       fontName: 'Times-Roman',
       fontSize: 18,
@@ -27,7 +27,7 @@ var options = {
       color: '#871b47',     // The color of the text.
       auraColor: '#d799ae', // The color of the text outline.
       opacity: 0.8          // The transparency of the text.
-    },
+    }
   };
 
   var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
