@@ -7,14 +7,11 @@ import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
-public class Database {
+public class DatabaseSession implements AutoCloseable{
 
-	private SessionFactory sessionFactory;
+	private  Session session = null;
 	
-	private static Session _session = null;
-	
-	public static Session getOpenSession(){
-		if(_session == null){
+	public DatabaseSession(){
 			Configuration configuration=new AnnotationConfiguration()
 	        .configure("hibernate.cfg.xml"); // configures settings from hibernate.cfg.xml
 	
@@ -26,26 +23,20 @@ public class Database {
 		     ServiceRegistry serviceRegistry = serviceRegistryBuilder.build();
 		     SessionFactory sessionFactory = configuration.buildSessionFactory(serviceRegistry);
 		     
-		     _session = sessionFactory.openSession();
-	     }
-		
-		return _session;
+		     session = sessionFactory.openSession();
+		     
+		     session.beginTransaction();
+	  
 	}
 	
-	public Database(){
-		Configuration configuration=new AnnotationConfiguration()
-        .configure(); // configures settings from hibernate.cfg.xml
+	public Session getSession(){
+		return this.session;
+	}
+	
 
-	     StandardServiceRegistryBuilder serviceRegistryBuilder = new StandardServiceRegistryBuilder();
-	
-	     // If you miss the below line then it will complaing about a missing dialect setting
-	     serviceRegistryBuilder.applySettings(configuration.getProperties());
-	
-	     ServiceRegistry serviceRegistry = serviceRegistryBuilder.build();
-	     this.sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+
+	@Override
+	public void close() throws Exception {
+		session.getTransaction().commit();
 	}
-	
-    public Session getSession() {
-        return this.sessionFactory.openSession();
-    }
 }

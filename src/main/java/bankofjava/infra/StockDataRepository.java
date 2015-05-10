@@ -14,9 +14,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class StockRepository extends Repository<Stock> {
+public class StockDataRepository extends Repository<StockData> {
 
-	public StockRepository(DatabaseSession session) {
+	public StockDataRepository(DatabaseSession session) {
 		super(session);
 		// TODO Auto-generated constructor stub
 	}

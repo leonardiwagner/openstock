@@ -1,6 +1,8 @@
 package bankofjava.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -8,10 +10,18 @@ import javax.persistence.Table;
 @Table(name="stock")
 public class Stock {
     @Id
-    private String id;
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private int id;
     private String name;
 	private float currentValue;
 	private float lastChange;
+	
+	private Stock(){}
+	public Stock(String name, float currentValue, float lastChange){
+		this.name = name;
+		this.currentValue = currentValue;
+		this.lastChange = lastChange;
+	}
 	
 	public String getName(){
 		return this.name;

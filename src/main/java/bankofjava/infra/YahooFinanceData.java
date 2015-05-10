@@ -39,7 +39,7 @@ public class YahooFinanceData {
 		String[] lines = csvResponse.split("\n");
 		for(int i = 1; i < lines.length; i++){
 			String[] rows = lines[i].split(",");
-			response.add(new StockData(symbol, yahooDateFormat.parse(rows[0]),Float.parseFloat(rows[3]),0));
+			//response.add(new StockData(symbol, yahooDateFormat.parse(rows[0]),Float.parseFloat(rows[3]),0));
 		}
 		
 		return response;
