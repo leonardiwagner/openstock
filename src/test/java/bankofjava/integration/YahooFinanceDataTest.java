@@ -10,14 +10,14 @@ import bankofjava.infra.StockRepository;
 import org.junit.Assert;
 import org.junit.*;
 
-import bankofjava.domain.StockItem;
+import bankofjava.domain.StockData;
 import bankofjava.infra.YahooFinanceData;
 
 public class YahooFinanceDataTest {
 	@Test
 	public void readStockDataFromYahoo() throws IOException, ParseException{
 		YahooFinanceData financeData = new YahooFinanceData();
-		List<StockItem> stockData = financeData.get("MSFT", LocalDate.now().minusDays(3), LocalDate.now().minusDays(1));
+		List<StockData> stockData = financeData.get("MSFT", LocalDate.now().minusDays(3), LocalDate.now().minusDays(1));
 		
 		Assert.assertEquals(3, stockData.size());
 	}

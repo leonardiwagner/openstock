@@ -8,16 +8,21 @@ import javax.persistence.Table;
 @Table(name="stock")
 public class Stock {
     @Id
-	private String name;
-	private String fullName;
+    private String id;
+    private String name;
 	private float currentValue;
 	private float lastChange;
 	
-	public float getCurrentValue(){
-		return this.currentValue;
+	public String getName(){
+		return this.name;
 	}
-    public void setCurrentValue(float value){
-        this.currentValue = value;
-    }
+	
+	public void setCurrentValue(float value){
+		this.currentValue = value;
+	}
+	
+	public void setLastChange(float lastChange){
+		this.lastChange = lastChange;
+	}
 	
 }

@@ -21,19 +21,17 @@ public class Transfer {
 	@ManyToOne
 	@JoinColumn(name="accountid_to")
 	private Account accountTo;
-	private int amount;
+	private float amount;
 	private Date created;
 	
 	private Transfer(){}
-	public Transfer(Account from, Account to, int ammount){
+	public Transfer(Account from, Account to, float ammount){
 		this.accountFrom = from;
 		this.accountTo = to;
 		this.amount = ammount;
 		this.created = new Date();
 	}
 	
-	public Account getAccountFrom(){ return this.accountFrom;}
-	public Account getAccountTo(){ return this.accountTo;}
-	public int getAmount(){ return this.amount;}
+	
 	
 }

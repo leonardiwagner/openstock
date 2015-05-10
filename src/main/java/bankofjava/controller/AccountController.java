@@ -20,16 +20,16 @@ public class AccountController{
 
 	@RequestMapping(value = "/index")
 	public Account index(){
-		return new Account("test name", "test@email.com", "123");
+		return new Account("test name");
 	}
 	
 	@RequestMapping(value = "/login", method=RequestMethod.POST)
 	public void login(@RequestParam String email, @RequestParam String password,
 					  HttpServletRequest request, HttpSession session){
 
-		Account account = new Account(name,email,""); //todo login to get this account
+		//Account account = new Account(name,email,""); //todo login to get this account
 		
-		session.setAttribute("user", account);
+		//session.setAttribute("user", account);
 	}
 	
 	@RequestMapping(value = "/create", method=RequestMethod.POST)
@@ -37,9 +37,9 @@ public class AccountController{
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
 		
-		Account account = new Account("","",""); //todo create account
+		//Account account = new Account("","",""); //todo create account
 		
-		session.setAttribute("user", account);
+		//session.setAttribute("user", account);
 		
 	}
 	
