@@ -1,4 +1,4 @@
-package bankofjava.infra;
+package bankofjava.infra.database;
 
 import java.util.Collections;
 import java.util.List;

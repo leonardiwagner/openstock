@@ -6,6 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.joda.time.DateTime;
+
 @Entity
 @Table(name="stock")
 public class Stock {
@@ -15,6 +17,7 @@ public class Stock {
     private String name;
 	private float currentValue;
 	private float lastChange;
+	private DateTime lastChangeDate; 
 	
 	private Stock(){}
 	public Stock(String name, float currentValue, float lastChange){
@@ -31,8 +34,16 @@ public class Stock {
 		this.currentValue = value;
 	}
 	
-	public void setLastChange(float lastChange){
-		this.lastChange = lastChange;
+	public void setLastChange(float value){
+		this.lastChange = value;
+	}
+	
+	public void setLastChangeDate(DateTime date){
+		this.lastChangeDate = date;
+	}
+
+	public DateTime getLastChangeDate(){
+		return this.getLastChangeDate();
 	}
 	
 }

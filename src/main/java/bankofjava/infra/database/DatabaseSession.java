@@ -1,4 +1,4 @@
-package bankofjava.infra;
+package bankofjava.infra.database;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.Session;

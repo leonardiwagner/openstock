@@ -2,15 +2,16 @@ package bankofjava.integration;
 
 import java.util.Date;
 
+import org.joda.time.DateTime;
 import org.junit.*;
 
 import bankofjava.domain.Account;
 import bankofjava.domain.Stock;
 import bankofjava.domain.StockData;
-import bankofjava.infra.AccountRepository;
-import bankofjava.infra.DatabaseSession;
-import bankofjava.infra.StockDataRepository;
-import bankofjava.infra.StockRepository;
+import bankofjava.infra.database.AccountRepository;
+import bankofjava.infra.database.DatabaseSession;
+import bankofjava.infra.database.StockDataRepository;
+import bankofjava.infra.database.StockRepository;
 
 public class StockDataTest {
 	@Test
@@ -21,7 +22,7 @@ public class StockDataTest {
 			repository.save(stock);
 			
 			StockDataRepository dataRepository = new StockDataRepository(session);
-			dataRepository.save(new StockData(stock, new Date(2010, 1, 1), 50, 40));
+			dataRepository.save(new StockData(stock, new DateTime(), 50, 40));
 		}
 	}
 }

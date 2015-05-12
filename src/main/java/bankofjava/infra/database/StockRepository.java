@@ -1,4 +1,4 @@
-package bankofjava.infra;
+package bankofjava.infra.database;
 
 import bankofjava.domain.Stock;
 import bankofjava.domain.StockData;
@@ -20,7 +20,8 @@ public class StockRepository extends Repository<Stock> {
 		super(session);
 		// TODO Auto-generated constructor stub
 	}
-  
+	
+
 
   
 

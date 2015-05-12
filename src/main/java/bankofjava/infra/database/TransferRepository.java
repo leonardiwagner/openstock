@@ -1,4 +1,4 @@
-package bankofjava.infra;
+package bankofjava.infra.database;
 
 import bankofjava.domain.Transfer;
 

@@ -6,6 +6,8 @@ import java.util.*;
 
 import bankofjava.domain.Account;
 import bankofjava.infra.*;
+import bankofjava.infra.database.AccountRepository;
+import bankofjava.infra.database.DatabaseSession;
 
 public class AccountTest{
 
