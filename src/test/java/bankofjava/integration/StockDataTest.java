@@ -18,7 +18,7 @@ public class StockDataTest {
 	public void shouldCreateStockItem() throws Exception{
 		try(DatabaseSession session = new DatabaseSession()){
 			StockRepository repository = new StockRepository(session);
-			Stock stock = new Stock("MSFT",10,0.5f);
+			Stock stock = new Stock("MSFT",10,0.5f, new DateTime());
 			repository.save(stock);
 			
 			StockDataRepository dataRepository = new StockDataRepository(session);

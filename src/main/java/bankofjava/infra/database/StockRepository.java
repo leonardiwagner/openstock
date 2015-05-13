@@ -17,8 +17,7 @@ import java.util.List;
 public class StockRepository extends Repository<Stock> {
 
 	public StockRepository(DatabaseSession session) {
-		super(session);
-		// TODO Auto-generated constructor stub
+		super(session, Stock.class);
 	}
 	
 

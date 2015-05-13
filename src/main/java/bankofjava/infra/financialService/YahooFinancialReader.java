@@ -61,10 +61,10 @@ public class YahooFinancialReader {
 	}
 	
 	private String replaceDateUrl(DateTime startDate, DateTime endDate){
-		return this.url.replaceAll("#a#", String.valueOf(startDate.getMonthOfYear()))
-				.replaceAll("#b#", String.valueOf(startDate.getDayOfMonth()))
+		return this.url.replaceAll("#a#", String.valueOf(startDate.getMonthOfYear() - 1))
+				.replaceAll("#b#", String.valueOf(startDate.getDayOfMonth() )) 
 				.replaceAll("#c#", String.valueOf(startDate.getYear()))
-				.replaceAll("#d#", String.valueOf(endDate.getMonthOfYear()))
+				.replaceAll("#d#", String.valueOf(endDate.getMonthOfYear() - 1))
 				.replaceAll("#e#", String.valueOf(endDate.getDayOfMonth()))
 				.replaceAll("#f#", String.valueOf(endDate.getYear()));
 	}

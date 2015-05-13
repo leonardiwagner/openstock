@@ -9,30 +9,20 @@ import org.hibernate.Session;
 import org.jinq.jpa.JinqJPAStreamProvider;
 
 public abstract class Repository<T>{
-	protected Session session;
-	private Class<T> typeParameterClass;
-	
-	EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("JPA");
-	JinqJPAStreamProvider streams =  new JinqJPAStreamProvider(entityManagerFactory);
-	
+	protected final Session session;
+	protected final Class<T> typeParameterClass;
 					  
 	public Repository(DatabaseSession session, Class<T> typeParameterClass){
 		this.session = session.getSession();
 		this.typeParameterClass = typeParameterClass;
-		
-		EntityManager em = em = entityManagerFactory.createEntityManager();
-		List<T> customers = streams
-				  .streamAll(em, typeParameterClass)
-				  .where( c -> c.getName().equals("Bob") )
-				  .toList();
 	}
 	
-	public T getById(Class<T> classType, int id){
-		return (T) session.get(classType, id);
+	public T getById(int id){
+		return (T) session.get(typeParameterClass, id);
 	}
 	
-	public List<T> getAll(Class<T> classType){
-		return session.createCriteria(classType).list();
+	public List<T> getAll(){
+		return session.createCriteria(typeParameterClass).list();
 	}
 	
 	public T save(T entity){

@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Type;
 import org.joda.time.DateTime;
 
 @Entity
@@ -18,6 +20,7 @@ public class StockData {
     @ManyToOne
     @JoinColumn(name="stockid")
     private Stock stock;
+    @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
     private DateTime date;
     private float value;
     private float change;
@@ -32,5 +35,13 @@ public class StockData {
     
     public DateTime getDate(){
     	return this.date;
+    }
+    
+    public float getValue(){
+    	return this.value;
+    }
+    
+    public void setValue(float value){
+    	this.value = value;
     }
 }

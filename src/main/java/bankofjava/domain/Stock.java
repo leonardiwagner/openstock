@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Type;
 import org.joda.time.DateTime;
 
 @Entity
@@ -17,17 +18,27 @@ public class Stock {
     private String name;
 	private float currentValue;
 	private float lastChange;
+	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
 	private DateTime lastChangeDate; 
 	
 	private Stock(){}
-	public Stock(String name, float currentValue, float lastChange){
+	public Stock(String name, float currentValue, float lastChange, DateTime lastChangeDate){
 		this.name = name;
 		this.currentValue = currentValue;
 		this.lastChange = lastChange;
+		this.lastChangeDate = lastChangeDate;
 	}
 	
 	public String getName(){
 		return this.name;
+	}
+	
+	public float getLastChange(){
+		return this.lastChange;
+	}
+	
+	public DateTime getLastChangeDate(){
+		return this.lastChangeDate;
 	}
 	
 	public void setCurrentValue(float value){
@@ -42,8 +53,6 @@ public class Stock {
 		this.lastChangeDate = date;
 	}
 
-	public DateTime getLastChangeDate(){
-		return this.getLastChangeDate();
-	}
+	
 	
 }

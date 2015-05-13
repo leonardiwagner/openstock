@@ -10,10 +10,10 @@ import bankofjava.domain.Account;
 public class AccountRepository extends Repository<Account>{
 
 	public AccountRepository(DatabaseSession session) {
-		super(session);
-		// TODO Auto-generated constructor stub
+		super(session, Account.class);
 	}
 
+	
 
 	
 
