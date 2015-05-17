@@ -10,9 +10,10 @@
   ],
   "dependencies": {
     "angulerjs": "x.x.x",
-    "bootstrap": "x.x.x",
+    "bootstrap": "~3.3.4",
     "jquery": "x.x.x",
     "jquery-ui": "x.x.x",
-    "html5-boilerplate": "x.x.x"
+    "html5-boilerplate": "x.x.x",
+    "Chart.js": "~1.0.2"
   }
 }
