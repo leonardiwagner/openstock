@@ -17,15 +17,13 @@ public class DatabaseSession implements AutoCloseable{
 	
 		     StandardServiceRegistryBuilder serviceRegistryBuilder = new StandardServiceRegistryBuilder();
 		
-		     // If you miss the below line then it will complaing about a missing dialect setting
+		     // If you miss the below line then it will complain about a missing dialect setting
 		     serviceRegistryBuilder.applySettings(configuration.getProperties());
 		
 		     ServiceRegistry serviceRegistry = serviceRegistryBuilder.build();
 		     SessionFactory sessionFactory = configuration.buildSessionFactory(serviceRegistry);
 		     
 		     session = sessionFactory.openSession();
-		     
-		     session.beginTransaction();
 	  
 	}
 	
@@ -33,10 +31,10 @@ public class DatabaseSession implements AutoCloseable{
 		return this.session;
 	}
 	
-
-
 	@Override
-	public void close() throws Exception {
-		session.getTransaction().commit();
+	public void close() {
+		if (this.session!=null){
+			this.session.close();
+		}
 	}
 }

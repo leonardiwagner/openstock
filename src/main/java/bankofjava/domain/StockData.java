@@ -33,6 +33,10 @@ public class StockData {
         this.change = change;
     }
     
+    public Stock getStock(){
+    	return this.stock;
+    }
+    
     public DateTime getDate(){
     	return this.date;
     }

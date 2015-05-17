@@ -6,7 +6,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import org.hibernate.Session;
-import org.jinq.jpa.JinqJPAStreamProvider;
+import javax.persistence.Table;
+
 
 public abstract class Repository<T>{
 	protected final Session session;
@@ -25,13 +26,43 @@ public abstract class Repository<T>{
 		return session.createCriteria(typeParameterClass).list();
 	}
 	
-	public T save(T entity){
+	public void save(T entity){
+		save(entity, false);
+	}
+	
+	public void save(T entity, boolean autoCommit){
+		if(autoCommit) session.beginTransaction();
 		session.saveOrUpdate(entity);
-		return entity;
+		if(autoCommit) session.getTransaction().commit();
 	}
 	
 	public void delete(T entity){
+		delete(entity, false);
+	}
+	
+	public void delete(T entity, boolean autoCommit){
+		if(autoCommit) session.beginTransaction();
 		session.delete(entity);
+		if(autoCommit) session.getTransaction().commit();
+	}
+
+	public void deleteAll(){
+		deleteAll(false);
+	}
+	
+	public void deleteAll(boolean autoCommit){
+		if(autoCommit) session.beginTransaction();
+		Table table = typeParameterClass.getAnnotation(Table.class);
+		session.createCriteria("delete from " + table.name());
+		if(autoCommit) session.getTransaction().commit();
+	}
+	
+	public void beginTransaction(){
+		session.beginTransaction();
+	}
+	
+	public void commitTransaction(){
+		session.getTransaction().commit();
 	}
 	
 	
