@@ -16,6 +16,7 @@ public class Stock {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
     private String name;
+    private String fullName;
 	private float currentValue;
 	private float lastChange;
 	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
@@ -31,6 +32,10 @@ public class Stock {
 	
 	public String getName(){
 		return this.name;
+	}
+	
+	public String getFullName(){
+		return this.fullName;
 	}
 	
 	public float getLastChange(){

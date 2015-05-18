@@ -24,11 +24,7 @@ public class StockDataRepository extends Repository<StockData> {
 		super(session, StockData.class);
 	}
 	
-	public StockData getLastStockData(Stock stock){
-		
-		return new StockData(new Stock("", 0, 0, new DateTime()), new DateTime(), 0, 0);
-		
-	}
+	
   
 
   

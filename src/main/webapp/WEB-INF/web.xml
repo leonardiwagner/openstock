@@ -11,15 +11,15 @@
   		<param-name>contextConfigLocation</param-name>
   		<param-value>/WEB-INF/config/servlet-config.xml</param-value>
   	</init-param>  	
-  	<load-on-startup>1</load-on-startup>
+  	<load-on-startup>1</load-on-startup> 
   </servlet>
   
-  <!-- 
+  
   <context-param>  
         <param-name>contextConfigLocation</param-name>  
         <param-value>/WEB-INF/config/servlet-config.xml</param-value>  
     </context-param>  
-     -->
+    
   <servlet-mapping>
   	<servlet-name>springapp</servlet-name>
   	<url-pattern>/</url-pattern>

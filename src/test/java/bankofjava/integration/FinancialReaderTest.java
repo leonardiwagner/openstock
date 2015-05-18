@@ -61,4 +61,17 @@ public class FinancialReaderTest {
 		}
 		
 	}
+	
+	@Test
+	public void xuxa() throws CantReadYahooFinancialDataExcepetion{
+		try(DatabaseSession session = new DatabaseSession()){
+			StockRepository stockRepository = new StockRepository(session);
+			@SuppressWarnings("unused")
+			List<Stock> lista = stockRepository.getRisers(3);
+			
+			@SuppressWarnings("unused")
+			int i = 1;
+		}
+		
+	}
 }

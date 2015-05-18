@@ -10,13 +10,162 @@
 	    <link rel="stylesheet" href="css/main.css">
 	    <link rel="stylesheet" href="js/lib/bootstrap/dist/css/bootstrap.css">
 
-
+	    <style>
+	    .glyphicon-triangle-top{
+	    	color: green;
+	    }
+	    .glyphicon-triangle-bottom{
+	    	color: red;
+	    }
+	    </style>
 	  	 
 	    
 	</head>
 	<body>
-		<canvas id="myChart" width="300" height="400"></canvas>
-
+		<div class="row">
+			<div class="col-md-8">
+				<canvas id="myChart" width="300" height="300"></canvas>
+			</div>
+			<div class="col-md-4">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Top Movers</h3>
+					</div>
+				    <table class="table table-striped">
+				    	<tr>
+				    		<td>
+				    			<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+				    			-2.5%
+			    			</td>
+							<td>Mc Donalds</td>
+							<td>Buy</td>		    	
+						</tr>
+						<tr>
+				    		<td>
+				    			<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+			    			-0,75%</td>
+							<td>Microsoft</td>
+							<td>Buy</td>		    	
+						</tr>
+						<tr>
+				    		<td>
+				    			<span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+			    			-0,72%</td>
+							<td>Google</td>
+							<td>Buy</td>		    	
+						</tr>
+						<tr>
+				    		<td>
+				    			<span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+			    			-0,72%</td>
+							<td>Google</td>
+							<td>Buy</td>		    	
+						</tr>
+						<tr>
+				    		<td>
+				    			<span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+			    			-0,72%</td>
+							<td>Google</td>
+							<td>Buy</td>		    	
+						</tr>
+						<tr>
+				    		<td>
+				    			<span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+			    			-0,72%</td>
+							<td>Google</td>
+							<td>Buy</td>		    	
+						</tr>
+						<tr>
+				    		<td>
+				    			<span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+			    			-0,72%</td>
+							<td>Google</td>
+							<td>Buy</td>		    	
+						</tr>
+						<tr>
+				    		<td>
+				    			<span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+			    			-0,72%</td>
+							<td>Google</td>
+							<td>Buy</td>		    	
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="panel panel-default">
+				  <div class="panel-heading">
+				    <h3 class="panel-title">More Rising</h3>
+				  </div>
+				  <table class="table table-striped">
+				    	<tr>
+				    		<td>-2.5%</td>
+							<td>Mc Donalds</td>
+							<td>
+								<button type="button" class="btn btn-default btn-sm">Buy</button>
+							</td>	    	
+						</tr>
+						<tr>
+				    		<td>-0,75%</td>
+							<td>Microsoft</td>
+							<td>
+								<button type="button" class="btn btn-default btn-sm">Buy</button>
+							</td>    	
+						</tr>
+						<tr>
+				    		<td>-0,72%</td>
+							<td>Google</td>
+							<td>
+								<button type="button" class="btn btn-default btn-sm">Buy</button>
+							</td>		    	
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">More Falling</h3>
+					</div>
+				    <table class="table table-striped">
+				    	<tr>
+				    		<td>
+				    			<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+				    			-2.5%
+			    			</td>
+							<td>Mc Donalds</td>
+							<td>Buy</td>		    	
+						</tr>
+						<tr>
+				    		<td>
+				    			<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+			    			-0,75%</td>
+							<td>Microsoft</td>
+							<td>Buy</td>		    	
+						</tr>
+						<tr>
+				    		<td>
+				    			<span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+			    			-0,72%</td>
+							<td>Google</td>
+							<td>Buy</td>		    	
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="panel panel-default">
+				  <div class="panel-heading">
+				    <h3 class="panel-title">User Week Ranking</h3>
+				  </div>
+				  <div class="panel-body">
+				    Panel content
+				  </div>
+				</div>
+			</div>
+		</div>
        	<script src="js/lib/jquery/dist/jquery.js"></script>
 	    <script src="js/lib/Chart.js/Chart.js"></script>
     	<script>
@@ -53,7 +202,7 @@
 			    scaleShowGridLines : true,
 
 			    //String - Colour of the grid lines
-			    scaleGridLineColor : "rgba(0,0,0,.05)",
+			    scaleGridsubliLineColor : "rgba(0,0,0,.05)",
 
 			    //Number - Width of the grid lines
 			    scaleGridLineWidth : 1,
