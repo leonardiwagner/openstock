@@ -25,7 +25,7 @@ import bankofjava.infra.financialService.YahooFinancialReader;
 
 public class FinancialReaderTest {
 	
-	@Test
+	//@Test
 	public void readStockData() throws CantReadYahooFinancialDataExcepetion{
 		YahooFinancialReader financeData = new YahooFinancialReader();
 		Stock stock = new Stock("MSFT", 0, 0, new DateTime());
@@ -34,7 +34,7 @@ public class FinancialReaderTest {
 		Assert.assertEquals(3, stockData.size());
 	}
 	
-	@Test
+	//@Test
 	public void updateStockData() throws CantReadYahooFinancialDataExcepetion{
 		try(DatabaseSession session = new DatabaseSession()){
 			StockRepository stockRepository = new StockRepository(session);
@@ -62,7 +62,7 @@ public class FinancialReaderTest {
 		
 	}
 	
-	@Test
+	//@Test
 	public void xuxa() throws CantReadYahooFinancialDataExcepetion{
 		try(DatabaseSession session = new DatabaseSession()){
 			StockRepository stockRepository = new StockRepository(session);

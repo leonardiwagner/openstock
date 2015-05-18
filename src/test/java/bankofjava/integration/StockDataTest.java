@@ -14,7 +14,7 @@ import bankofjava.infra.database.StockDataRepository;
 import bankofjava.infra.database.StockRepository;
 
 public class StockDataTest {
-	@Test
+	//@Test
 	public void shouldCreateStockItem() throws Exception{
 		try(DatabaseSession session = new DatabaseSession()){
 			StockRepository repository = new StockRepository(session);
