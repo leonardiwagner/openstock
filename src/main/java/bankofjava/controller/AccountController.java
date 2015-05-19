@@ -43,9 +43,7 @@ public class AccountController{
 		
 	}
 	
-	@RequestMapping(value = "/create", method=RequestMethod.POST)
-	public void create(){
-	}
+	
 
 
 }

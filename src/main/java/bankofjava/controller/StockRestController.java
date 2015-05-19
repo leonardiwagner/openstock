@@ -9,10 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 import bankofjava.domain.Stock;
 
 @RestController
-@RequestMapping("/stocks")
 public class StockRestController {
 
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping("/stocks")
 	public HomeRestData get(){
 		return new HomeRestData();
 	}
