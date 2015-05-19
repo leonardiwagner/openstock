@@ -1,3 +1,9 @@
 language: java
 jdk:
   - oraclejdk8
+deploy:
+  provider: heroku
+  app: bank-of-java
+  api_key: f385020e-9069-444a-a4d6-7c8c5ba1c040
+  on:
+    branch: master
