@@ -38,6 +38,10 @@ public class Stock {
 		return this.fullName;
 	}
 	
+	public float getCurrentValue(){
+		return this.currentValue;
+	}
+	
 	public float getLastChange(){
 		return this.lastChange;
 	}

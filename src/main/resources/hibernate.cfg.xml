@@ -22,7 +22,7 @@
 		</property>
 
 		<mapping class="bankofjava.domain.Account"></mapping>
-		<mapping class="bankofjava.domain.Transfer"></mapping>
+		<mapping class="bankofjava.domain.Transaction"></mapping>
 	   <mapping class="bankofjava.domain.Stock"></mapping>
        <mapping class="bankofjava.domain.StockData"></mapping>
 	</session-factory>

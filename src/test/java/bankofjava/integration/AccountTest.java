@@ -15,7 +15,7 @@ public class AccountTest{
 	public void createAccount() throws Exception{
 		try(DatabaseSession session = new DatabaseSession()){
 			AccountRepository repository = new AccountRepository(session);
-			repository.save(new Account("test@user.com"));
+			repository.save(new Account("test@user.com",0));
 		}
 	}
 	

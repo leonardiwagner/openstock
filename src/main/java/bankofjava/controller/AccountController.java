@@ -20,7 +20,7 @@ public class AccountController{
 
 	@RequestMapping(value = "/index")
 	public Account index(){
-		return new Account("test name");
+		return new Account("test name",0);
 	}
 	
 	@RequestMapping(value = "/login", method=RequestMethod.POST)
