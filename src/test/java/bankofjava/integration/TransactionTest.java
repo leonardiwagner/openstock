@@ -21,7 +21,7 @@ import bankofjava.infra.database.TransactionRepository;
 import bankofjava.infra.financialService.YahooFinancialReader;
 
 public class TransactionTest {
-	@Test
+	//@Test
 	public void shouldCreateTransaction() throws Exception{
 		try(DatabaseSession session = new DatabaseSession()){
 			AccountRepository accountRepository = new AccountRepository(session);
