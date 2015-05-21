@@ -12,6 +12,7 @@ import bankofjava.domain.Stock;
 import bankofjava.domain.StockData;
 import bankofjava.domain.StockUpdater;
 import bankofjava.domain.Transaction;
+import bankofjava.domain.TransactionMaker;
 import bankofjava.domain.TransactionType;
 import bankofjava.infra.database.AccountRepository;
 import bankofjava.infra.database.DatabaseSession;
@@ -40,8 +41,10 @@ public class TransactionTest {
 			stockRepository.save(stock, true);
 			
 			Transaction transaction = new Transaction(TransactionType.Buy, account, stock, 3);
-			transaction.transact(transactionRepository, accountRepository);
-						
+			TransactionMaker transactionMaker = new TransactionMaker(transactionRepository, accountRepository);
+			transactionMaker.transact(transaction);
+			
+			
 			List<Transaction> transactionData = transactionRepository.getAll();
 			
 			float x = 1;

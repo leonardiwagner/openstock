@@ -41,16 +41,22 @@ public class Transaction {
 		this.price = stock.getCurrentValue();
 	}
 	
-	public void transact(TransactionRepository transactionRepository, AccountRepository accountRepository){
-		float transactionPrice = this.count * this.price;
-		if(this.type == TransactionType.Buy){
-			transactionPrice *= -1;
-		}
-		this.account.setBalance(this.account.getBalance() - transactionPrice);
-		
-		accountRepository.save(this.account, true);
-		transactionRepository.save(this, true);
+	public Stock getStock(){
+		return this.stock;
 	}
+	public Account getAccount(){
+		return this.account;
+	}
+	public TransactionType getType(){
+		return this.type;
+	}
+	public int getCount(){
+		return this.count;
+	}
+	public float getPrice(){
+		return this.price;
+	}
+
 	
 	
 	
