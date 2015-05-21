@@ -32,8 +32,8 @@ public class TransactionMaker {
 		float newAccountBallance = transaction.getAccount().getBalance() - transactionPrice;
 		transaction.getAccount().setBalance(newAccountBallance);
 		
-		accountRepository.save(transaction.getAccount());
-		transactionRepository.save(transaction);
+		accountRepository.save(transaction.getAccount(), true);
+		transactionRepository.save(transaction, true);
 	}
 	
 	

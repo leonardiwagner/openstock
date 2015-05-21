@@ -51,10 +51,8 @@ public abstract class Repository<T>{
 	}
 	
 	public void deleteAll(boolean autoCommit){
-		if(autoCommit) session.beginTransaction();
 		Table table = typeParameterClass.getAnnotation(Table.class);
-		session.createCriteria("delete from " + table.name());
-		if(autoCommit) session.getTransaction().commit();
+		session.createSQLQuery("delete from " + table.name()).executeUpdate();
 	}
 	
 	public void beginTransaction(){

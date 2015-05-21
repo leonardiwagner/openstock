@@ -47,7 +47,6 @@ public class TransactionTest {
 			
 			List<Transaction> transactionData = transactionRepository.getAll();
 			
-			float x = 1;
 			//Assert.assertEquals(3, msftData.size());
 			//Assert.assertEquals(2, koData.size());
 			//Assert.assertEquals(1, mcdData.size());

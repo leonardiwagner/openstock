@@ -39,6 +39,7 @@ public class Transaction {
 		this.stock = stock;
 		this.count = count;
 		this.price = stock.getCurrentValue();
+		this.date = new DateTime();
 	}
 	
 	public Stock getStock(){

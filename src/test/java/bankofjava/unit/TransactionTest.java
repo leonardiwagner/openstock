@@ -1,4 +1,4 @@
-package bankofjava.test.unit;
+package bankofjava.unit;
 
 import junit.framework.Assert;
 
