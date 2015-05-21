@@ -1,12 +1,16 @@
 bank-of-java
 ============
 [![Build Status](https://travis-ci.org/leonardiwagner/bank-of-java.svg?branch=master)](https://travis-ci.org/leonardiwagner/bank-of-java)
-
-A project that simulates stock market and banking, using a own fictional virtual currency.
+Stock Exchange Simulator
 
 ## Features
 - Java 8
-- SpringMVC
+- Scala
+- Spring MVC
 - Hibernate
-- TDD with jUnit (unity and integration tests)
-- Continuous Integration with Travis (https://travis-ci.org/)
+- TDD with jUnit and Mockito
+- Continuous Integration with Travis-CI
+- Automatic Deployment with Heroku
+- Bootstrap
+- Angular.js
+
