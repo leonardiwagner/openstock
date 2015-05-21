@@ -1,9 +1,8 @@
-bank-of-java
+OpenStock [![Build Status](https://travis-ci.org/leonardiwagner/bank-of-java.svg?branch=master)](https://travis-ci.org/leonardiwagner/bank-of-java)
 ============
-[![Build Status](https://travis-ci.org/leonardiwagner/bank-of-java.svg?branch=master)](https://travis-ci.org/leonardiwagner/bank-of-java)
-Stock Exchange Simulator
+Stock Exchange Simulator. 
 
-## Features
+## Tech Features
 - Java 8
 - Scala
 - Spring MVC
