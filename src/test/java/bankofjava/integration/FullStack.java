@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -30,8 +31,22 @@ import bankofjava.infra.financialService.YahooFinancialReader;
 
 public class FullStack {
 	
-	
 	@Test
+	public void testX(){
+		try(DatabaseSession session = new DatabaseSession()){
+			TransactionRepository transaction = new TransactionRepository(session);
+			transaction.mostSelledToday();
+			
+			/*
+			for(Stock s : stockList){
+				System.out.println(s.getName());
+			}*/
+			
+			int x = 2;
+		}
+	}
+	
+	//@Test
 	public void fullStack() throws CantReadYahooFinancialDataExcepetion{
 		try(DatabaseSession session = new DatabaseSession()){
 			

@@ -2,9 +2,14 @@ package bankofjava.infra.database;
 
 import bankofjava.domain.Stock;
 import bankofjava.domain.StockData;
+import bankofjava.domain.Transaction;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
+import org.joda.time.DateTime;
 
 import javax.json.*;
 
@@ -23,16 +28,21 @@ public class StockRepository extends Repository<Stock> {
 		super(session, Stock.class);
 	}
 	
-	public List<Stock> getRisers(int count){
-		Query query = session.createQuery("FROM Stock ORDER BY lastChange ASC");
-		query.setMaxResults(count);
-		return query.list();
+	public List<StockData> getTopRisersOfDay(DateTime date, int count){
+		return getTopStocksOfDay(date, Order.asc("price"), count);
 	}
 	
-	public List<Stock> getFallers(int count){
-		Query query = session.createQuery("FROM Stock ORDER BY lastChange ASC");
-		query.setMaxResults(count);
-		return query.list();
+	public List<StockData> getTopFallersOfDay(DateTime date, int count){
+		return getTopStocksOfDay(date, Order.desc("price"), count);
+	}
+	
+	
+	private List<StockData> getTopStocksOfDay(DateTime date, Order order, int count){
+		return session.createCriteria(StockData.class)       
+                .add(Restrictions.eq("date", date))      
+                .addOrder(order)
+                .setMaxResults(count)
+                .list();
 	}
 	
 

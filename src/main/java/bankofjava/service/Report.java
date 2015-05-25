@@ -17,7 +17,7 @@ public class Report {
 		this.stockRepository = stockRepository;
 		this.transactionRepository = transactionRepository;
 	}
-	
+	/*
 	public List<Stock> getTopMarkers(){
 		return stockRepository.getFallers(3).addAll(stockRepository.getRisers(3));
 	}
@@ -32,6 +32,6 @@ public class Report {
 
 	public getMostSelledStock(){
 		
-	}
+	}*/
 
 }

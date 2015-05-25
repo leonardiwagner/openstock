@@ -4,6 +4,7 @@ import bankofjava.domain.Account;
 import bankofjava.domain.Stock;
 import bankofjava.domain.StockData;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.joda.time.DateTime;
 
@@ -24,9 +25,17 @@ public class StockDataRepository extends Repository<StockData> {
 		super(session, StockData.class);
 	}
 	
+	public List<StockData> getRisers(int count){
+		Query query = session.createQuery("FROM Stock ORDER BY lastChange ASC");
+		query.setMaxResults(count);
+		return query.list();
+	}
 	
-  
-
+	public List<StockData> getFallers(int count){
+		Query query = session.createQuery("FROM Stock ORDER BY lastChange ASC");
+		query.setMaxResults(count);
+		return query.list();
+	}
   
 
 
