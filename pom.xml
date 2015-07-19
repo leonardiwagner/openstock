@@ -178,8 +178,9 @@
                 <artifactId>flyway-maven-plugin</artifactId>
                 <version>3.2.1</version>
                 <configuration>
-                    <url>jdbc:h2:file:target/foobar</url>
-                    <user>sa</user>
+                    <url>jdbc:postgresql://localhost:5432/bankofjava</url>
+                    <user>postgres</user>
+					<password>123</password>
                 </configuration>
                 <dependencies>
                     <dependency>
