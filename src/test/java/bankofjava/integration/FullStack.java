@@ -35,7 +35,7 @@ public class FullStack {
 	public void testX(){
 		try(DatabaseSession session = new DatabaseSession()){
 			TransactionRepository transaction = new TransactionRepository(session);
-			transaction.mostSelledToday();
+			//transaction.mostSelledToday();
 			
 			/*
 			for(Stock s : stockList){

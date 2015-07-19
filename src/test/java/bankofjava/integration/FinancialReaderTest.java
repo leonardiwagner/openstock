@@ -67,9 +67,9 @@ public class FinancialReaderTest {
 		try(DatabaseSession session = new DatabaseSession()){
 			StockRepository stockRepository = new StockRepository(session);
 			@SuppressWarnings("unused")
-			List<Stock> lista = stockRepository.getRisers(3);
+			//List<Stock> lista = stockRepository.getRisers(3);
 			
-			@SuppressWarnings("unused")
+
 			int i = 1;
 		}
 		
