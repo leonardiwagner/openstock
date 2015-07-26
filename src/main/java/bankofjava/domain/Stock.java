@@ -23,6 +23,14 @@ public class Stock {
 	private DateTime lastChangeDate; 
 	
 	private Stock(){}
+
+	public Stock(int id, String name, String fullName, float currentValue, float lastChange, DateTime lastChangeDate){
+		this.name = name;
+		this.currentValue = currentValue;
+		this.lastChange = lastChange;
+		this.lastChangeDate = lastChangeDate;
+	}
+
 	public Stock(String name, float currentValue, float lastChange, DateTime lastChangeDate){
 		this.name = name;
 		this.currentValue = currentValue;
@@ -30,37 +38,20 @@ public class Stock {
 		this.lastChangeDate = lastChangeDate;
 	}
 	
-	public String getName(){
-		return this.name;
-	}
-	
-	public String getFullName(){
-		return this.fullName;
-	}
-	
-	public float getCurrentValue(){
-		return this.currentValue;
-	}
-	
+	public String getName(){return this.name; }
+	public String getFullName(){ return this.fullName; }
+	public float getCurrentValue(){ return this.currentValue;}
 	public float getLastChange(){
 		return this.lastChange;
 	}
-	
 	public DateTime getLastChangeDate(){
 		return this.lastChangeDate;
 	}
-	
-	public void setCurrentValue(float value){
-		this.currentValue = value;
+
+	public Stock changeValues(float currentValue, float lastChange, DateTime lastChangeDate){
+		return new Stock(this.id, this.name, this.fullName, currentValue, lastChange, lastChangeDate);
 	}
 	
-	public void setLastChange(float value){
-		this.lastChange = value;
-	}
-	
-	public void setLastChangeDate(DateTime date){
-		this.lastChangeDate = date;
-	}
 
 	
 	

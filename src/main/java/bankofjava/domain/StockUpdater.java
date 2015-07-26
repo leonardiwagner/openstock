@@ -51,9 +51,9 @@ public class StockUpdater {
 		}
 		
 		DateTime currentDate = new DateTime();
-		stock.setLastChangeDate(currentDate);
-		stock.setLastChange(newChange);
-		stock.setCurrentValue(stockDataMissing.get(stockDataMissing.size() -1).getValue());
+		//stock.setLastChangeDate(currentDate);
+		//stock.setLastChange(newChange);
+		//stock.setCurrentValue(stockDataMissing.get(stockDataMissing.size() -1).getValue());
 		stockRepository.save(stock);
 	}
 }

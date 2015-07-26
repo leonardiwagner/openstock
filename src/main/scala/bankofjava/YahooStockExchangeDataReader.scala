@@ -14,7 +14,7 @@ object YahooStockExchangeDataReader extends StockExchangeDataReader {
   def getData(stock:Stock, startDate: DateTime, endDate: DateTime): List[StockData] ={
     val callUrl = this.replaceDateUrl(startDate, endDate)
     val csvResponse = Source.fromURL(callUrl).mkString
-    csvResponseToObjectList(csvResponse, stock)
+    csvResponseToObjectList(csvResponse, stock).reverse //reverse to newest be the first
   }
 
   private def replaceDateUrl(startDate: DateTime, endDate: DateTime): String = {
