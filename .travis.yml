@@ -11,5 +11,5 @@ deploy:
     branch: master
 before_script:
   - psql --version
-  - psql -c "create database bankofjava;" -U
+  - psql -c 'create database bankofjava;' -U postgres
   - mvn flyway:migrate -Dflyway.user=postgres -Dflyway.password="" -Dflyway.url="jdbc:postgresql://127.0.0.1:5432/bankofjava" -Dflyway.initOnMigrate=true
