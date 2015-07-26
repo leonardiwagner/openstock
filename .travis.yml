@@ -1,6 +1,6 @@
 language: java
 jdk:
-  - oraclejdk8
+  - openjdk8
 addons:
   postgresql: "9.3"
 deploy:
@@ -10,4 +10,5 @@ deploy:
   on:
     branch: master
 before_script:
-  - psql -c 'create database bankofjava;' -U postgres
+  - psql -c 'create database bankofjava;' -U
+  - mvn flyway:migrate -Dflyway.user=postgres -Dflyway.password="" -Dflyway.url="jdbc:postgresql://127.0.0.1:5432/bankofjava" -Dflyway.initOnMigrate=true
