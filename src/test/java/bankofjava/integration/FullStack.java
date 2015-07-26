@@ -31,7 +31,7 @@ import bankofjava.infra.financialService.YahooFinancialReader;
 
 public class FullStack {
 	
-	@Test
+	//@Test
 	public void testX(){
 		try(DatabaseSession session = new DatabaseSession()){
 			TransactionRepository transaction = new TransactionRepository(session);

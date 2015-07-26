@@ -1,9 +1,13 @@
 language: java
 jdk:
   - oraclejdk8
+addons:
+  postgresql: "9.3"
 deploy:
   provider: heroku
   app: bank-of-java
   api_key: f385020e-9069-444a-a4d6-7c8c5ba1c040
   on:
     branch: master
+before_script:
+  - psql -c 'create database bankofjava;' -U postgres

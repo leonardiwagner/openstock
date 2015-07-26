@@ -11,7 +11,7 @@ import bankofjava.infra.database.DatabaseSession;
 public class AccountTest{
 
 	
-	//@Test
+	@Test
 	public void createAccount() throws Exception{
 		try(DatabaseSession session = new DatabaseSession()){
 			AccountRepository repository = new AccountRepository(session);
